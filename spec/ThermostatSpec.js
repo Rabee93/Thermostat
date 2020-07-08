@@ -30,5 +30,19 @@ describe ('Thermostat', function() {
     })
 
   })
+  describe('powerSwitch', function(){
+    it('will throw an error if the tempreture is above 25', function(){
+      thermostat = new Thermostat();
+      thermostat.powerSwitch
+      console.log(thermostat.max)
+      console.log(thermostat.powermode)
+      thermostat.up(5)
+      expect (function () {thermostat.up(1);}).toThrow(Error('max tempreture reached'))
+
+
+    })
+
+
+  })
 
 });
