@@ -1,33 +1,45 @@
-class Thermostat {
-
-  constructor() {
-    this.temp = 20
-    this.max = 32
-    this.min = 10
-    this.powermode = false
-  }
-
-  up(n) {
-    if ((this.temp + n) > this.max) throw Error("max tempreture reached");
-    this.temp += n
-  }
-
-  down(n) {
-    if ((this.temp - n) < this.min) throw Error("10 is the minimum temp");
-    this.temp -= n
-  }
-
-  powerSwitch() {
-   if (this.powermode == false) {
-     this.powermode = true;
-     this.max = 25;
-   }
-    else {
-    this.powermode = false;
-    this.max = 32;
-  }
-
-
+'use strict';
+class Thermostat{
+    constructor() {
+      this.temperature = 20;
+      this.powersavingmodeon = true;
     }
-
-  }
+    getCurrentTemperature() {
+      return this.temperature;
+    }
+    up(){
+      if (this.powersavingmodeon && this.temperature >= 25) {
+        throw new Error('Power Saving Mode is on, maximum temperature reached');
+      }
+      if (this.temperature >= 32) {
+        throw new Error('Maximum temperature reached');
+      }
+     this.temperature += 1
+    }
+    down(){
+      if (this.temperature <= 10) {
+        throw new Error('No');
+      };
+      this.temperature -= 1
+    }
+    reset(){
+      this.temperature = 20
+    }
+    ispowersavingmodeon() {
+      return this.powersavingmodeon;
+    }
+    psmoff() {
+      this.powersavingmodeon = false;
+    }
+    getCurrentEnergyUsage() {
+      if (this.temperature < 18) {
+        return "low-usage";
+      }
+      if (this.temperature >= 18 && this.temperature <= 25) {
+        return "medium-usage";
+      }
+      if (this.temperature > 25) {
+        return "high-usage";
+      }
+    }
+}
