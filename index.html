@@ -2,13 +2,21 @@
 <html>
 <head>
 <title>Page Title</title>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
 <h1 id="temperature">Thermostat</h1>
-
+<section>
+  <h1>Current temperature: <span id="current-temperature">20</span></h1>
+  <select id="current-city">
+    <option value="london">London</option>
+    <option value="new york">New York</option>
+    <option value="paris">Paris</option>
+    <option value="tokyo">Tokyo</option>
+  </select>
+</section>
 <p>
   <button id="up">up</button>
   <button id="down">down</button>
