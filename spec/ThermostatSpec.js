@@ -11,7 +11,6 @@ describe('Thermostat', function() {
     for(var i=0; i < 10; i++){
       thermostat.down();
     }
-    console.log(thermostat.getCurrentTemperature());
     expect(function () { thermostat.down(); }).toThrowError('No');
   });
     describe("Up", function(){
@@ -82,4 +81,4 @@ describe('Thermostat', function() {
         expect(thermostat.getCurrentEnergyUsage()).toEqual("high-usage");
       });
     });
-}); 
+});
